@@ -1,13 +1,23 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      img: "heero.jpg",
+    };
+  },
+
+  methods: {
+    pathImg(img) {
+      const imgUrl = new URL("../assets/img/" + img, import.meta.url);
+
+      return imgUrl.href;
+    },
   },
 };
 </script>
 
 <template>
-  <img src="../assets/img/heero.jpg" alt="" />
+  <img :src="pathImg(img)" alt="" />
 </template>
 
 <style></style>
